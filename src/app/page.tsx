@@ -257,8 +257,9 @@ export default function Home() {
             viewport={{ once: false }}
             className="bg-white rounded-[2.5rem] shadow-2xl border border-slate-100 p-8 md:p-12"
           >
-            <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
-              
+            <form className="space-y-6" data-netlify="true" name="contact" onSubmit={(e) => e.preventDefault()}>
+              <input type="hidden" name="form-name" value="contact" /> {/* per permettere l'invio dei dati via js*/}
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* Nome */}
                 <div className="space-y-2">
@@ -266,6 +267,8 @@ export default function Home() {
                     <User size={16} /> Nome
                   </label>
                   <input 
+                    name="name"
+                    required
                     type="text" 
                     placeholder="Il tuo nome"
                     className="w-full px-6 py-4 bg-slate-50 border border-slate-200 rounded-2xl text-hero focus:outline-none focus:border-hover focus:ring-1 focus:ring-hero transition-all"
@@ -278,6 +281,8 @@ export default function Home() {
                     <Mail size={16} /> Email
                   </label>
                   <input 
+                    name="email"
+                    required
                     type="email" 
                     placeholder="esempio@mail.com"
                     className="w-full px-6 py-4 bg-slate-50 border border-slate-200 rounded-2xl text-hero focus:outline-none focus:border-hover focus:ring-1 focus:ring-hero transition-all"
@@ -291,6 +296,8 @@ export default function Home() {
                   <MessageSquare size={16} /> Messaggio
                 </label>
                 <textarea 
+                  name="message"
+                  required
                   rows={5}
                   placeholder="Come posso aiutarti?"
                   className="w-full px-6 py-4 bg-slate-50 border border-slate-200 rounded-2xl text-hero focus:outline-none focus:border-hover focus:ring-1 focus:ring-hero transition-all resize-none"
