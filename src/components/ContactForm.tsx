@@ -29,7 +29,7 @@ export default function ContactForm() {
     const data = Object.fromEntries(formData);
 
     // 2. Invio AJAX a Netlify [cite: 2026-02-27]
-    fetch("/", {
+    fetch("/__forms.html", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({
