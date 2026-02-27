@@ -257,7 +257,7 @@ export default function Home() {
             viewport={{ once: false }}
             className="bg-white rounded-[2.5rem] shadow-2xl border border-slate-100 p-8 md:p-12"
           >
-            <form className="space-y-6" data-netlify="true" name="contact" onSubmit={(e) => e.preventDefault()}>
+            <form className="space-y-6" method="POST" name="contact" onSubmit={(e) => e.preventDefault()}>
               <input type="hidden" name="form-name" value="contact" /> {/* per permettere l'invio dei dati via js*/}
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
