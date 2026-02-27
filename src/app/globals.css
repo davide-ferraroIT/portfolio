@@ -2,7 +2,7 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #131314;
 }
 
 @theme inline {
@@ -10,6 +10,9 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --color-hover: #6E07F3;
+  --color-navbar: #0D0321;
+  --color-hero: #0A001B;
 }
 
 @media (prefers-color-scheme: dark) {
