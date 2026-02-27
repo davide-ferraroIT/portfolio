@@ -3,10 +3,12 @@
 import Typewriter from 'typewriter-effect';
 import Image from 'next/image';
 import Link from 'next/link';
+
 import { motion } from 'framer-motion';
 import { Github, ArrowRight, Box, Instagram, Linkedin, Mail, Send, User, MessageSquare } from 'lucide-react';
 import { useState } from 'react';
 
+import ContactForm from '@/components/ContactForm';
 
 //array di card
 const projects = [
@@ -30,7 +32,11 @@ const projects = [
   }
 ];
 
+
+
 export default function Home() {
+
+  
   return (
     <main className="">
       
@@ -250,72 +256,9 @@ export default function Home() {
             </motion.p>
           </div>
 
-          {/* LA CARD DEL FORM */}
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: false }}
-            className="bg-white rounded-[2.5rem] shadow-2xl border border-slate-100 p-8 md:p-12"
-          >
-            <form className="space-y-6" method="POST" name="contact" onSubmit={(e) => e.preventDefault()}>
-              <input type="hidden" name="form-name" value="contact" /> {/* per permettere l'invio dei dati via js*/}
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {/* Nome */}
-                <div className="space-y-2">
-                  <label className="text-sm font-semibold text-hero ml-1 flex items-center gap-2">
-                    <User size={16} /> Nome
-                  </label>
-                  <input 
-                    name="name"
-                    required
-                    type="text" 
-                    placeholder="Il tuo nome"
-                    className="w-full px-6 py-4 bg-slate-50 border border-slate-200 rounded-2xl text-hero focus:outline-none focus:border-hover focus:ring-1 focus:ring-hero transition-all"
-                  />
-                </div>
-
-                {/* Email */}
-                <div className="space-y-2">
-                  <label className="text-sm font-semibold text-hero ml-1 flex items-center gap-2">
-                    <Mail size={16} /> Email
-                  </label>
-                  <input 
-                    name="email"
-                    required
-                    type="email" 
-                    placeholder="esempio@mail.com"
-                    className="w-full px-6 py-4 bg-slate-50 border border-slate-200 rounded-2xl text-hero focus:outline-none focus:border-hover focus:ring-1 focus:ring-hero transition-all"
-                  />
-                </div>
-              </div>
-
-              {/* Messaggio */}
-              <div className="space-y-2">
-                <label className="text-sm font-semibold text-hero ml-1 flex items-center gap-2">
-                  <MessageSquare size={16} /> Messaggio
-                </label>
-                <textarea 
-                  name="message"
-                  required
-                  rows={5}
-                  placeholder="Come posso aiutarti?"
-                  className="w-full px-6 py-4 bg-slate-50 border border-slate-200 rounded-2xl text-hero focus:outline-none focus:border-hover focus:ring-1 focus:ring-hero transition-all resize-none"
-                ></textarea>
-              </div>
-
-              {/* Bottone Invio */}
-              <motion.button 
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="w-full md:w-max px-12 py-4 bg-hero text-white font-bold rounded-full shadow-lg shadow-hero/20 hover:bg-hover hover:text-black transition-all duration-300 flex items-center justify-center gap-3"
-              >
-                Invia Messaggio
-                <Send size={20} />
-              </motion.button>
-
-            </form>
-          </motion.div>
+          {/* COMPONENTE FORM */}
+          <ContactForm />
+          
         </div>
       </section>
 
