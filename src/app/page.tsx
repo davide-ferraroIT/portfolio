@@ -289,7 +289,7 @@ export default function Home() {
                   />
                 </div>
               </div>
-test
+te
               {/* Messaggio */}
               <div className="space-y-2">
                 <label className="text-sm font-semibold text-hero ml-1 flex items-center gap-2">
