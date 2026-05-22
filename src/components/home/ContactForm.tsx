@@ -125,7 +125,7 @@ export default function ContactForm() {
             name="message"
             required
             rows={5}
-            placeholder="Come posso aiutarti?"
+            placeholder="Inserisci qui il tuo messaggio"
             className="w-full px-6 py-4 bg-slate-50 border border-slate-200 rounded-2xl text-hero focus:outline-none focus:border-hover transition-all resize-none"
           ></textarea>
         </div>
