@@ -5,6 +5,7 @@ import ProjectsSection from '@/components/home/ProjectsSection';
 import ContactSection from '@/components/home/ContactSection';
 import BottomDivider from '@/components/home/BottomDivider';
 
+
 export default function Home() {
   return (
     <main>
