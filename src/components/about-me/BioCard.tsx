@@ -24,7 +24,7 @@ export default function BioCard({ fadeInUp }: BioCardProps) {
           Sono un Tecnico IT junior con esperienza nel supporto di I/II livello e in attività di system administration, maturata operando nel complesso e critico settore sanitario per GVM Care & Research.
         </p>
         <p className="text-slate-400">
-          Diplomato in Informatica all'ISS Majorana-Giorgi (81/100), attualmente frequento la Laurea Triennale in Informatica all'Università di Genova. Sono motivato da un forte desiderio di crescita, con l'obiettivo di specializzarmi nello sviluppo software e nell'implementazione di soluzioni ICT moderne.
+          Diplomato in Informatica all&apos;ISS Majorana-Giorgi (81/100), attualmente frequento la Laurea Triennale in Informatica all&apos;Università di Genova. Sono motivato da un forte desiderio di crescita, con l&apos;obiettivo di specializzarmi nello sviluppo software e nell&apos;implementazione di soluzioni ICT moderne.
         </p>
         <p className="text-slate-400">
           Mi distinguo per precisione, abilità nel problem solving e nel troubleshooting autonomo. Sono automunito e pienamente disponibile a trasferte sia sul territorio nazionale che internazionale.

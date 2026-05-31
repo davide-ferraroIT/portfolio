@@ -2,9 +2,17 @@
 
 import Typewriter from 'typewriter-effect';
 import Image from 'next/image';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 
 export default function HeroSection() {
+    const handleContactClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+        e.preventDefault();
+        const contactSection = document.getElementById('contact');
+        if (contactSection) {
+            contactSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
     return (
         <section className="flex flex-col md:flex-row items-center justify-between p-6 md:p-12 gap-10 md:gap-1 bg-hero min-h-[90vh]">
             {/* BLOCCO TESTO */}
@@ -54,12 +62,13 @@ export default function HeroSection() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.8 }}
                 >
-                    <a
-                        href="#contact"
+                    <Link
+                        href="/#contact"
+                        onClick={handleContactClick}
                         className="inline-block px-10 py-4 bg-hover text-[#0A001B] font-bold rounded-full hover:scale-110 active:scale-95 transition-all duration-300 shadow-lg shadow-hover/20 cursor-pointer"
                     >
                         Contattami
-                    </a>
+                    </Link>
                 </motion.div>
             </div>
         </section>

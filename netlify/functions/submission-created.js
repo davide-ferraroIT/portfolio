@@ -1,10 +1,10 @@
-const { Resend } = require('resend');
+import { Resend } from 'resend';
 
-// Inizializza Resend con la chiave che hai messo su Netlify
+// Inizializzo Resend con la chiave che hai messo su Netlify
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 exports.handler = async (event) => {
-  // 1. Recupera i dati del form inviati da Netlify
+  // Recupero i dati del form inviati da Netlify
   const { payload } = JSON.parse(event.body);
   const { email, name, message } = payload.data;
 
@@ -74,7 +74,7 @@ exports.handler = async (event) => {
             </div>
 
             <div class="footer">
-            <p style="margin: 0;">© 2026 Davide Ferraro — Sviluppatore Web</p>
+            <p style="margin: 0;">© 2026 Davide Ferraro — Sviluppatore</p>
             <p style="margin-top: 10px; opacity: 0.7;">Inviato da noreply@davide-ferraro.it</p>
             </div>
 

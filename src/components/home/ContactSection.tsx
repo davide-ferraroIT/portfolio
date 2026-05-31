@@ -24,7 +24,7 @@ export default function ContactSection() {
             transition={{ delay: 0.1 }}
             className="text-slate-500 text-lg"
           >
-            Sei un recruiter o un technical manager? Utilizza questo form per richiedere il mio CV aggiornato, propormi un colloquio o semplicemente per fare networking.
+            Hai un&apos;idea nel cassetto? O magari vuoi solo capire come il digitale può darti una mano?
           </motion.p>
         </div>
 

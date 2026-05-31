@@ -3,14 +3,36 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
 
   // Funzione per chiudere il menu quando si clicca un link
   const closeMenu = () => setIsOpen(false);
+
+  // Scorre in cima se siamo già in homepage
+  const handleHomeClick = () => {
+    closeMenu();
+    if (pathname === '/') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
+  // Scorre al form dei contatti se siamo già in homepage
+  const handleContactClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    closeMenu();
+    if (pathname === '/') {
+      e.preventDefault();
+      const contactSection = document.getElementById('contact');
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
 
   return (
     <nav className="sticky top-0 z-50 bg-navbar text-white border-b border-slate-500 backdrop-blur-sm bg-opacity-95">
@@ -18,7 +40,7 @@ export default function Navbar() {
   
         {/* LOGO - Centrato forzando il flex sul Link */}
         <div className="flex items-center justify-center">
-          <Link href="/" onClick={closeMenu} className="flex items-center justify-center">
+          <Link href="/" onClick={handleHomeClick} className="flex items-center justify-center">
             <Image 
               src="/icon.png"       
               alt="Davide Ferraro Logo" 
@@ -32,14 +54,15 @@ export default function Navbar() {
         {/* DESKTOP MENU (Invariato, ma eredita il padding del padre) */}
         <div className="hidden md:flex items-center gap-8">
           <ul className="flex items-center gap-8 text-base font-medium">
-            <li><Link href="/" className="hover:text-hover transition-colors">Home</Link></li>
+            <li><Link href="/" onClick={handleHomeClick} className="hover:text-hover transition-colors">Home</Link></li>
             {/* LINK PROGETTI DESKTOP COMMENTATO 
             <li><Link href="/projects" className="hover:text-hover transition-colors">Progetti</Link></li>
             */}
             <li><Link href="/about-me" className="hover:text-hover transition-colors">Chi Sono</Link></li>
           </ul>
           <Link 
-            href="#contact" 
+            href="/#contact" 
+            onClick={handleContactClick}
             className="bg-hover text-white px-5 py-2 rounded-full font-bold hover:bg-hover transition-all duration-300 shadow-lg hover:scale-105"
           >
             Contattami
@@ -67,7 +90,7 @@ export default function Navbar() {
           >
             <ul className="flex flex-col gap-6 p-6 text-lg font-medium">
               <li>
-                <Link href="/" onClick={closeMenu} className="block hover:text-hover">Home</Link>
+                <Link href="/" onClick={handleHomeClick} className="block hover:text-hover">Home</Link>
               </li>
               {/* LINK PROGETTI MOBILE COMMENTATO
               <li>
@@ -79,8 +102,8 @@ export default function Navbar() {
               </li>
               <li>
                 <Link 
-                  href="#contact" 
-                  onClick={closeMenu}
+                  href="/#contact" 
+                  onClick={handleContactClick}
                   className="inline-block bg-hover text-white px-6 py-3 rounded-full font-bold text-center w-full"
                 >
                   Contattami

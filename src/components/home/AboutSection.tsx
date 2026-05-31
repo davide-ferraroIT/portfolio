@@ -26,10 +26,10 @@ export default function AboutSection() {
             className="space-y-6 text-lg md:text-xl text-slate-700 leading-relaxed"
             >
             <p>
-                Sviluppatore software guidato da una solida curiosità tecnica e da un obiettivo chiaro: utilizzare la tecnologia per risolvere problemi reali ed eliminare l'inefficienza. Il mio background mi consente di muovermi con autonomia sia sulla costruzione di esperienze utente reattive e moderne, sia sulla logica di backend e sull'integrazione di sistemi automatizzati.
+                Ciao, sono Davide. Prima di immergermi a tempo pieno nello sviluppo software, ho vissuto in prima persona cosa significa stare dietro al bancone e mandare avanti un&apos;attività a contatto con il pubblico. So bene che quando hai un negozio o un locale, ogni minuto è prezioso e l&apos;ultima cosa che vuoi è perdere tempo con strumenti digitali complicati. Ecco perché ho un obiettivo molto chiaro: costruire siti web e applicazioni che ti semplifichino davvero la vita.
             </p>
             <p>
-                Credo che un buon software debba essere non solo performante, ma anche strategico per il flusso di lavoro di chi lo utilizza. Per questo motivo, porto nei team in cui lavoro precisione tecnica, capacità di mappare flussi complessi e una costante attitudine all'aggiornamento, pronto a collaborare per superare gli obiettivi tecnologici aziendali.
+                Il mio lavoro non è solo scrivere codice, ma ascoltare le tue esigenze e creare soluzioni su misura (come gestire ordini, vetrine online o flussi di lavoro) che ti tolgano il peso della tecnologia, lasciandoti libero di fare quello che ami: curare i tuoi clienti.
             </p>
             </motion.div>
 

@@ -5,12 +5,13 @@ import { User, Mail, MessageSquare, Send } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export default function ContactForm() {
+
   // Stati per gestire l'invio e il nome dinamico
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
   const [submittedName, setSubmittedName] = useState('');
 
-  // Funzione per codificare i dati nel formato richiesto da Netlify [cite: 2026-02-27]
-  const encode = (data: any) => {
+  // Funzione per codificare i dati nel formato richiesto da Netlify
+  const encode = (data: Record<string, string>) => {
     return Object.keys(data)
       .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
       .join("&");
@@ -22,13 +23,13 @@ export default function ContactForm() {
 
     const formData = new FormData(e.currentTarget);
     
-    // 1. Catturiamo il nome per il messaggio di successo
+    // Cattura del nome per il messaggio di successo
     const name = formData.get('name') as string;
     setSubmittedName(name);
 
     const data = Object.fromEntries(formData);
 
-    // 2. Invio AJAX a Netlify [cite: 2026-02-27]
+    // Invio AJAX a Netlify
     fetch("/form.html", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -58,7 +59,7 @@ export default function ContactForm() {
         <h3 className="text-2xl font-bold text-hero mb-2">Grazie {submittedName}!</h3>
         <p className="text-slate-600">
           Il tuo messaggio è stato inviato correttamente. <br />
-          Ti risponderò il prima possibile!!!.
+          Ti risponderò il prima possibile.
         </p>
         <button 
           onClick={() => setStatus('idle')}
@@ -83,7 +84,7 @@ export default function ContactForm() {
         onSubmit={handleSubmit} 
         name="contact"
       >
-        {/* Campo hidden per Netlify [cite: 2026-02-27] */}
+        {/* Campo hidden per Netlify */}
         <input type="hidden" name="form-name" value="contact" />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

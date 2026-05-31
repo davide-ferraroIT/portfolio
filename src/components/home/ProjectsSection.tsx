@@ -49,7 +49,7 @@ export default function ProjectsSection() {
             transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
             className="text-slate-500 text-lg"
           >
-            una piccola collezione dei miei progetti, scoprili tutti!
+            Una piccola collezione dei miei progetti, scoprili tutti!
           </motion.p>
         </div>
 
