@@ -55,9 +55,7 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-8">
           <ul className="flex items-center gap-8 text-base font-medium">
             <li><Link href="/" onClick={handleHomeClick} className="hover:text-hover transition-colors">Home</Link></li>
-            {/* LINK PROGETTI DESKTOP COMMENTATO 
-            <li><Link href="/projects" className="hover:text-hover transition-colors">Progetti</Link></li>
-            */}
+            <li><Link href="/projects" onClick={closeMenu} className="hover:text-hover transition-colors">Progetti</Link></li>
             <li><Link href="/about-me" className="hover:text-hover transition-colors">Chi Sono</Link></li>
           </ul>
           <Link 
@@ -92,11 +90,9 @@ export default function Navbar() {
               <li>
                 <Link href="/" onClick={handleHomeClick} className="block hover:text-hover">Home</Link>
               </li>
-              {/* LINK PROGETTI MOBILE COMMENTATO
               <li>
                 <Link href="/projects" onClick={closeMenu} className="block hover:text-hover">Progetti</Link>
               </li>
-              */}
               <li>
                 <Link href="/about-me" onClick={closeMenu} className="block hover:text-hover">Chi Sono</Link>
               </li>
