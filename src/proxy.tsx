@@ -5,7 +5,7 @@ export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl
 
   // Definizione rotte completamente bloccate
-  const blockedRoutes = ['/alzati-lazzaro-world', '/projects']
+  const blockedRoutes = ['/alzati-lazzaro-world']
 
   // Controllo se la rotta attuale corrisponde a una di quelle bloccate
   // (il controllo gestisce sia la rotta esatta sia eventuali sotto-pagine)
@@ -27,6 +27,5 @@ export function proxy(request: NextRequest) {
 export const config = {
   matcher: [
     '/alzati-lazzaro-world/:path*',
-    '/projects/:path*',
   ],
 }
