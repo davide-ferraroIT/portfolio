@@ -7,9 +7,9 @@ interface SkillsCardProps {
   fadeInUp: MotionProps;
 }
 
-const softwareSkills = ["C/C++", "Java", "PHP", "MySQL", "JavaScript", "HTML", "CSS", "Git & GitHub"];
-const systemSkills = ["Networking", "System Admin", "Hardware Support", "IT Help Desk I/II Liv.", "Gestione Accessi"];
-const softSkills = ["Problem Solving Rapido", "Inglese B1", "Gestione dello Stress", "Disponibilità Trasferte", "Patente A2 - B"];
+const softwareSkills = ["React", "Django", "PostgreSQL", "C/C++", "Java", "PHP", "MySQL", "JavaScript", "HTML", "CSS", "Git"];
+const systemSkills = ["Docker & DevOps", "Networking", "System Admin", "Hardware Support", "IT Help Desk", "Gestione Accessi"];
+const softSkills = ["Problem Solving", "Troubleshooting", "Inglese B1", "Gestione dello Stress", "Disponibilità Trasferte", "Patente A2 - B"];
 
 export default function SkillsCard({ fadeInUp }: SkillsCardProps) {
   return (

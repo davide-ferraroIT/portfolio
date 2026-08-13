@@ -26,10 +26,10 @@ export default function AboutSection() {
             className="space-y-6 text-lg md:text-xl text-slate-700 leading-relaxed"
             >
             <p>
-                Ciao, sono Davide. Prima di immergermi a tempo pieno nello sviluppo software, ho vissuto in prima persona cosa significa stare dietro al bancone e mandare avanti un&apos;attività a contatto con il pubblico. So bene che quando hai un negozio o un locale, ogni minuto è prezioso e l&apos;ultima cosa che vuoi è perdere tempo con strumenti digitali complicati. Ecco perché ho un obiettivo molto chiaro: costruire siti web e applicazioni che ti semplifichino davvero la vita.
+                Ciao, sono Davide. Sono un IT Support Specialist e Sviluppatore Junior con esperienza pratica nell&apos;amministrazione di sistema e nello sviluppo full-stack di applicativi web. Unisco solide basi accademiche — come Laureando in Informatica all&apos;Università di Genova — a una forte operatività sul campo maturata in ambienti lavorativi ad alta criticità.
             </p>
             <p>
-                Il mio lavoro non è solo scrivere codice, ma ascoltare le tue esigenze e creare soluzioni su misura (come gestire ordini, vetrine online o flussi di lavoro) che ti tolgano il peso della tecnologia, lasciandoti libero di fare quello che ami: curare i tuoi clienti.
+                Il mio percorso mi ha permesso di sviluppare una visione a 360 gradi dell&apos;IT: dalla gestione e troubleshooting hardware/software di I e II livello, fino allo sviluppo di piattaforme moderne (React, Django, Docker) e all&apos;orchestrazione di pipeline DevOps. Il mio obiettivo è progettare e manutenere soluzioni ICT robuste, efficienti e orientate al problem solving.
             </p>
             </motion.div>
 

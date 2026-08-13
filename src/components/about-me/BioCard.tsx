@@ -21,13 +21,13 @@ export default function BioCard({ fadeInUp }: BioCardProps) {
       </div>
       <div className="space-y-4">
         <p className="text-slate-300 text-lg leading-relaxed">
-          Sono un Tecnico IT junior con esperienza nel supporto di I/II livello e in attività di system administration, maturata operando nel complesso e critico settore sanitario per GVM Care & Research.
+          Sono un IT Support Specialist e Sviluppatore Junior con esperienza consolidata nell&apos;amministrazione di sistema e nel supporto di I/II livello all&apos;interno del complesso settore sanitario per GVM Care & Research.
         </p>
         <p className="text-slate-400">
-          Diplomato in Informatica all&apos;ISS Majorana-Giorgi (81/100), attualmente frequento la Laurea Triennale in Informatica all&apos;Università di Genova. Sono motivato da un forte desiderio di crescita, con l&apos;obiettivo di specializzarmi nello sviluppo software e nell&apos;implementazione di soluzioni ICT moderne.
+          Recentemente ho arricchito il mio profilo assumendo un ruolo operativo nello sviluppo full-stack di applicativi web e nella gestione di ambienti DevOps. Questo percorso mi ha permesso di unire le solide basi teoriche del mio corso di Laurea in Informatica a spiccate doti pratiche nell&apos;implementazione di moderne soluzioni ICT.
         </p>
         <p className="text-slate-400">
-          Mi distinguo per precisione, abilità nel problem solving e nel troubleshooting autonomo. Sono automunito e pienamente disponibile a trasferte sia sul territorio nazionale che internazionale.
+          Diplomato all&apos;ISS Majorana-Giorgi e laureando in Informatica all&apos;Università di Genova, mi distinguo per precisione, efficacia nel problem solving e nel troubleshooting autonomo. Sono automunito e pienamente disponibile a trasferte.
         </p>
       </div>
     </motion.section>

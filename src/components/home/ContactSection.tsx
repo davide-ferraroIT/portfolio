@@ -24,7 +24,7 @@ export default function ContactSection() {
             transition={{ delay: 0.1 }}
             className="text-slate-500 text-lg"
           >
-            Hai un&apos;idea nel cassetto? O magari vuoi solo capire come il digitale può darti una mano?
+            Sei alla ricerca di un profilo tecnico motivato per il tuo team o desideri approfondire le mie competenze? Non esitare a scrivermi.
           </motion.p>
         </div>
 

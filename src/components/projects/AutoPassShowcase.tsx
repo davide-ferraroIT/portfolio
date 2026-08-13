@@ -229,9 +229,9 @@ export default function AutoPassShowcase() {
                 </div>
                 <div className="bg-black/30 border border-white/10 p-6 rounded-2xl space-y-3">
                   <Zap className="text-hover" size={28} />
-                  <h3 className="text-lg font-bold">Impulso Relè Controllato</h3>
+                  <h3 className="text-lg font-bold">Attuazione del Relè</h3>
                   <p className="text-slate-400 text-sm">
-                    Gestione precisa del contatto pulito del relè per simulare la pressione del pulsante di apertura del cancello automatico.
+                    Pilotaggio a basso livello tramite i pin dell&apos;ESP32, interfacciandosi in modo sicuro con il circuito del cancello automatico.
                   </p>
                 </div>
                 <div className="bg-black/30 border border-white/10 p-6 rounded-2xl space-y-3">

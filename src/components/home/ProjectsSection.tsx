@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Radio, ShieldCheck, Wifi } from 'lucide-react';
 
 const featuredProject = {
-  title: "AutoPass 🚗⚡",
+  title: "AutoPass",
   subtitle: "Sistema IoT su ESP32 per Automazione Cancelli via iBeacon & Wi-Fi OTA",
   description: "Sistema embedded basato su ESP32 e PlatformIO progettato per l'apertura automatica di cancelli o garage tramite rilevamento di prossimità di dispositivi iBeacon (smartphone, tag BLE o smartwatch), dotato di protezione anti-rimbalzo (cooldown) e aggiornamenti wireless del firmware via Wi-Fi.",
   tags: ["ESP32", "C++ / PlatformIO", "NimBLE-Arduino", "iBeacon BLE", "ArduinoOTA"],

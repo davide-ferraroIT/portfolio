@@ -9,22 +9,22 @@ interface ExperienceCardProps {
 
 const experiences = [
   {
-    role: "IT Support Specialist",
+    role: "IT Support Specialist & Software Developer",
     company: "Fucix (GVM Care & Research)",
     period: "05/2025 — Attuale",
-    description: "Riferimento IT in ambiente multi-sede ad alta criticità. Gestione Help Desk I/II Livello, troubleshooting avanzato (hardware/software), amministrazione accessi e manutenzione periferiche sanitarie. Gestione escalation e partecipazione attiva a progetti di sviluppo software interni."
+    description: "Referente IT in ambiente multi-sede ad alta criticità. Gestione completa del supporto di I/II livello e dell'infrastruttura hardware. Sviluppo e ottimizzazione full-stack in React, Django, PostgreSQL all'interno di architetture containerizzate in Docker. Amministrazione DevOps di ambienti di staging/produzione con Git e R&D."
   },
   {
     role: "Supporto allo studio",
     company: "Autonomo",
     period: "12/2024 — 08/2025",
-    description: "Supporto didattico in Informatica, Sistemi e Reti. Creazione di piani di studio personalizzati con focus sulla semplificazione di concetti complessi e lo sviluppo del problem solving nello studente."
+    description: "Supporto didattico privato per studenti delle superiori in materie specialistiche: Informatica, Sistemi e Reti, Progettazione di Sistemi Informatici. Sviluppo di piani di studio personalizzati volti all'autonomia dello studente."
   },
   {
-    role: "Logistica, Vendita & Volontariato",
+    role: "Vendita, Produzione & Volontariato",
     company: "Varie Esperienze",
     period: "2017 — 2024",
-    description: "Gestione autonoma del ciclo di vendita e della clientela in ambito fieristico. Precedente esperienza in Protezione Civile (Radio Club Levante) per il monitoraggio in contesti di emergenza. Esperienze fondamentali per lo sviluppo di teamwork, multitasking e resistenza allo stress."
+    description: "Esperienze diversificate in vendita al dettaglio, produzione industriale (assemblaggio infissi) e Protezione Civile (Radio Club Levante). Tali percorsi hanno consolidato doti di multitasking, problem solving rapido e gestione dello stress sul campo."
   }
 ];
 
