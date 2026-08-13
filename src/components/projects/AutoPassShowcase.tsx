@@ -79,7 +79,7 @@ export default function AutoPassShowcase() {
             </div>
 
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-white flex items-center gap-3">
-              AutoPass 🚗⚡
+              AutoPass
             </h1>
 
             <p className="text-xl md:text-2xl text-slate-300 max-w-3xl font-light leading-relaxed">
