@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { ArrowRight, Radio, ShieldCheck, Wifi } from 'lucide-react';
+import { ArrowRight, Radio, ShieldCheck, Wifi, Github } from 'lucide-react';
 
 const featuredProject = {
   title: "AutoPass",
@@ -123,6 +123,62 @@ export default function ProjectsSection() {
                   <span className="block text-xs text-slate-400">Firmware Update</span>
                   <span className="text-sm font-bold text-white">ArduinoOTA (Wi-Fi Local)</span>
                 </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+        {/* CARD IN SVILUPPO (OMNIBOOK) */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+          className="mt-12 relative bg-white border border-slate-200 rounded-[2.5rem] p-8 md:p-12 shadow-xl overflow-hidden group hover:border-hover/30 transition-all duration-500"
+        >
+          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div className="lg:col-span-12 space-y-6">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-blue-50 border border-blue-200 rounded-full text-blue-700 font-mono text-xs font-bold tracking-wide">
+                <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span> IN SVILUPPO
+              </div>
+
+              <div>
+                <h3 className="text-3xl md:text-4xl font-bold text-hero mb-2">
+                  Omnibook
+                </h3>
+                <p className="text-slate-500 text-base md:text-lg font-medium">
+                  SaaS Multi-Tenant White-Label per la gestione di appuntamenti
+                </p>
+              </div>
+              
+              <p className="text-slate-600 text-sm md:text-base leading-relaxed">
+                Architettura a microservizi (Polyglot Monorepo) per una piattaforma scalabile data-driven. 
+                Il backend in <strong>Spring Boot 3 (Java 21)</strong> sfrutta PostgreSQL e JSONB per schemi flessibili per ogni Tenant. 
+                Il frontend è una PWA/App Nativa in <strong>Angular 18 e Ionic</strong> con theming dinamico (Tailwind CSS) che 
+                si autoconfigura scaricando i parametri White-Label dal server. Il ciclo di vita è governato da 
+                CI/CD pipeline (GitHub Actions) e containerizzazione Docker.
+              </p>
+
+              <div className="flex flex-wrap gap-2 pt-2">
+                {["Java 21 / Spring Boot 3", "Angular 18 / Ionic", "PostgreSQL (JSONB)", "Docker & CI/CD", "Tailwind CSS"].map((tag) => (
+                  <span
+                    key={tag}
+                    className="px-3 py-1 bg-slate-100 border border-slate-200 rounded-lg text-xs font-mono text-slate-600"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+
+              <div className="pt-2">
+                <a
+                  href="https://github.com/davide-ferraroIT/OmniBook"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-slate-900 text-white font-medium rounded-full hover:bg-slate-800 transition-colors duration-300 shadow-sm"
+                >
+                  <Github size={18} />
+                  Vedi su GitHub
+                </a>
               </div>
             </div>
           </div>
