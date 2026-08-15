@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { ArrowRight, Radio, ShieldCheck, Wifi, Github } from 'lucide-react';
+import { ArrowRight, Radio, ShieldCheck, Wifi, Github, ExternalLink } from 'lucide-react';
 
 const featuredProject = {
   title: "AutoPass",
@@ -169,12 +169,21 @@ export default function ProjectsSection() {
                 ))}
               </div>
 
-              <div className="pt-2">
+              <div className="pt-2 flex flex-wrap gap-4">
+                <a
+                  href="https://omnibook.davide-ferraro.it"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-hover text-white font-medium rounded-full hover:bg-hover/90 transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5"
+                >
+                  <ExternalLink size={18} />
+                  Provalo ora
+                </a>
                 <a
                   href="https://github.com/davide-ferraroIT/OmniBook"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-slate-900 text-white font-medium rounded-full hover:bg-slate-800 transition-colors duration-300 shadow-sm"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-slate-900 text-white font-medium rounded-full hover:bg-slate-800 transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5"
                 >
                   <Github size={18} />
                   Vedi su GitHub
