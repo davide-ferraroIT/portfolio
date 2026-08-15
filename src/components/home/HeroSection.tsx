@@ -14,30 +14,22 @@ export default function HeroSection() {
         }
     };
     return (
-        <section className="relative overflow-hidden flex flex-col md:flex-row items-center justify-between p-6 md:p-12 gap-10 md:gap-1 bg-gradient-to-b from-[#0A001B] via-[#070012] to-[#03000A] min-h-[90vh]">
-            {/* GRID PATTERN OVERLAY */}
-            <div 
-                className="absolute inset-0 z-0 pointer-events-none opacity-50"
-                style={{
-                    backgroundImage: "radial-gradient(circle at center, rgba(255,255,255,0.08) 1px, transparent 1px)",
-                    backgroundSize: "24px 24px"
-                }}
-            />
+        <section className="relative overflow-hidden flex flex-col md:flex-row items-center justify-between p-6 md:p-12 gap-10 md:gap-1 bg-gradient-to-b from-[#0A001B] via-[#0D0321] to-[#16003B] min-h-[90vh]">
             {/* SFONDI DINAMICI E DECORATIVI */}
             <motion.div
-                animate={{ scale: [1, 1.2, 1], opacity: [0.4, 0.6, 0.4] }}
+                animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
                 transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -top-40 -left-40 w-[35rem] h-[35rem] bg-fuchsia-600/30 rounded-full blur-[140px] pointer-events-none z-0"
+                className="absolute -top-40 -left-40 w-96 h-96 bg-hover/40 rounded-full blur-[120px] pointer-events-none z-0"
             />
             <motion.div
-                animate={{ scale: [1, 1.3, 1], opacity: [0.3, 0.5, 0.3] }}
+                animate={{ scale: [1, 1.3, 1], opacity: [0.2, 0.4, 0.2] }}
                 transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="absolute top-1/4 right-0 md:-right-20 w-[40rem] h-[40rem] bg-cyan-600/20 rounded-full blur-[140px] pointer-events-none z-0"
+                className="absolute top-1/4 right-0 md:-right-20 w-[30rem] h-[30rem] bg-blue-600/30 rounded-full blur-[120px] pointer-events-none z-0"
             />
             <motion.div
-                animate={{ scale: [1, 1.1, 1], opacity: [0.2, 0.4, 0.2] }}
+                animate={{ scale: [1, 1.1, 1], opacity: [0.1, 0.3, 0.1] }}
                 transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-                className="absolute -bottom-20 left-1/3 w-[30rem] h-[30rem] bg-indigo-600/30 rounded-full blur-[140px] pointer-events-none z-0"
+                className="absolute -bottom-20 left-1/3 w-[25rem] h-[25rem] bg-purple-700/30 rounded-full blur-[120px] pointer-events-none z-0"
             />
             {/* BLOCCO TESTO */}
             <motion.div
@@ -51,10 +43,16 @@ export default function HeroSection() {
                         <span className="text-6xl md:text-8xl mb-2 text-white">
                             Ciao, sono
                         </span>
-                        <span className="text-hover text-4xl md:text-6xl w-80 md:w-130">
+                        <span className="text-hover text-3xl sm:text-4xl md:text-5xl lg:text-6xl whitespace-nowrap w-[300px] sm:w-[400px] md:w-[600px]">
                             <Typewriter
                                 options={{
-                                    strings: ['Davide Ferraro', 'uno sviluppatore'],
+                                    strings: [
+                                        'Davide Ferraro',
+                                        'un Full Stack Developer',
+                                        'un ICT Specialist',
+                                        'un Software Engineer',
+                                        'un Tech Problem Solver'
+                                    ],
                                     autoStart: true,
                                     loop: true,
                                     deleteSpeed: 50,
