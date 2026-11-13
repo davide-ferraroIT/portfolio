@@ -6,43 +6,59 @@ import { motion } from 'framer-motion';
 
 export default function ContactForm() {
 
-  // Stati per gestire l'invio e il nome dinamico
+  // Stati per gestire l'invio, il nome dinamico e i messaggi di errore
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
   const [submittedName, setSubmittedName] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
-  // Funzione per codificare i dati nel formato richiesto da Netlify
-  const encode = (data: Record<string, string>) => {
-    return Object.keys(data)
-      .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-      .join("&");
-  };
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus('sending');
+    setErrorMessage('');
 
-    const formData = new FormData(e.currentTarget);
+    const form = e.currentTarget;
+    const formData = new FormData(form);
     
     // Cattura del nome per il messaggio di successo
-    const name = formData.get('name') as string;
+    const name = (formData.get('name') as string) || '';
+    const email = (formData.get('email') as string) || '';
+    const message = (formData.get('message') as string) || '';
+    const website = (formData.get('website') as string) || '';
+
     setSubmittedName(name);
 
-    const data = Object.fromEntries(formData);
+    const apiUrl = `${process.env.NEXT_PUBLIC_API_URL || ''}/api/contact`;
 
-    // Invio AJAX a Netlify
-    fetch("/form.html", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({
-        "form-name": "contact",
-        ...data,
-      }),
-    })
-      .then(() => setStatus('success'))
-      .catch((error) => {
-        console.error(error);
-        setStatus('error');
+    try {
+      const res = await fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          message,
+          website,
+        }),
       });
+
+      if (res.ok) {
+        setStatus('success');
+      } else {
+        const data = await res.json().catch(() => null);
+        if (res.status === 429) {
+          setErrorMessage(data?.error || 'Hai inviato troppe richieste. Riprova tra qualche minuto.');
+        } else {
+          setErrorMessage(data?.error || 'Ops! Qualcosa è andato storto. Riprova più tardi.');
+        }
+        setStatus('error');
+      }
+    } catch (error) {
+      console.error('Errore invio form:', error);
+      setErrorMessage('Impossibile contattare il server. Verifica la tua connessione e riprova.');
+      setStatus('error');
+    }
   };
 
   // INTERFACCIA DI SUCCESSO (Messaggio personalizzato)
@@ -84,8 +100,15 @@ export default function ContactForm() {
         onSubmit={handleSubmit} 
         name="contact"
       >
-        {/* Campo hidden per Netlify */}
-        <input type="hidden" name="form-name" value="contact" />
+        {/* Campo honeypot anti-spam invisibile */}
+        <div className="hidden" aria-hidden="true" style={{ display: 'none' }}>
+          <input
+            type="text"
+            name="website"
+            tabIndex={-1}
+            autoComplete="off"
+          />
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Nome */}
@@ -151,7 +174,7 @@ export default function ContactForm() {
         {/* Messaggio di Errore */}
         {status === 'error' && (
           <p className="text-red-500 text-sm text-center font-medium mt-4">
-            Ops! Qualcosa è andato storto. Riprova più tardi.
+            {errorMessage || 'Ops! Qualcosa è andato storto. Riprova più tardi.'}
           </p>
         )}
       </form>

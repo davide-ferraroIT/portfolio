@@ -1,0 +1,15 @@
+services:
+  backend:
+    image: portfolio-backend:latest
+    container_name: portfolio-backend
+    restart: unless-stopped
+    read_only: true
+    tmpfs:
+      - /tmp:size=8M,noexec,nosuid
+    mem_limit: 32m
+    ports:
+      - "127.0.0.1:3001:3001"
+    env_file:
+      - .env
+    logging:
+      driver: "journald"

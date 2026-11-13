@@ -11,9 +11,9 @@ Sito Web: [davide-ferraro.it](https://davide-ferraro.it)
 *   **⚡ Next.js 16 (App Router)**: Sviluppato sfruttando le ultime convenzioni e ottimizzazioni del framework, inclusa la gestione asincrona dei server components.
 *   **🎨 Design Premium & Dinamico**: Interfaccia utente curata, moderna e reattiva, arricchita da micro-animazioni fluide realizzate con **Framer Motion** e scorrimenti armoniosi.
 *   **💨 Tailwind CSS v4**: Utilizzo dell'innovativo motore v4 con configurazione del tema integrata direttamente tramite `@theme inline` in `globals.css` per la massima performance di compilazione.
-*   **🔒 Next.js 16 Proxy Middleware**: Implementazione del nuovo standard `src/proxy.ts` (che sostituisce il vecchio `middleware.ts`) per proteggere e gestire in modo reattivo le pagine in fase di lavorazione (reindirizzando a 404).
-*   **📬 Netlify Forms Integration**: Modulo di contatto integrato tramite richieste AJAX asincrone con supporto per il recupero dati dinamico e sistema di honeypot anti-spam.
-*   **✉️ Integrazione con Resend**: Predisposizione per l'invio e la gestione di email transazionali e notifiche tramite la piattaforma moderna **Resend**.
+*   **🔒 Next.js 16 Proxy**: Implementazione del nuovo standard `src/proxy.tsx` per la gestione delle rotte in fase di sviluppo locale.
+*   **Modulo di Contatto Self-Hosted**: Form collegato a un microservizio Go con validazione, honeypot anti-spam e rate limiting in memoria.
+*   **Invio Email SMTP**: Notifiche al proprietario e conferme automatiche ai visitatori inviate tramite il server SMTP autenticato di Register.it.
 *   **🏷️ Tipizzazione Robusta**: Scritto interamente in **TypeScript** per garantire massima affidabilità e manutenibilità.
 
 ---
@@ -27,7 +27,7 @@ Sito Web: [davide-ferraro.it](https://davide-ferraro.it)
 | **TypeScript** | Superset tipizzato di JavaScript |
 | **Tailwind CSS v4** | Framework CSS utility-first per uno stile rapido e responsive |
 | **Framer Motion** | Libreria per animazioni fluide e interazioni visive avanzate |
-| **Resend** | Servizio di invio email per sviluppatori per comunicazioni transazionali rapide ed efficienti |
+| **Go (standard library)** | Microservizio HTTP per l'invio email SMTP, compilato in un binario statico |
 | **Lucide React** | Set di icone moderne e minimali in formato SVG |
 | **Typewriter Effect** | Effetto di scrittura dinamica del titolo in Hero |
 
@@ -37,9 +37,13 @@ Sito Web: [davide-ferraro.it](https://davide-ferraro.it)
 
 ```text
 portfolio/
-├── public/                  # Asset statici (immagini, loghi, file HTML)
-│   ├── form.html            # Template HTML per l'integrazione di Netlify Forms
-│   └── ...                  # Foto e loghi
+├── backend/                 # Microservizio Go per il modulo di contatto
+│   ├── main.go              # API, validazione, rate limiting e invio SMTP
+│   ├── Dockerfile           # Build multi-stage con immagine finale scratch
+│   └── docker-compose.yml   # Container read-only con limiti di memoria
+├── deploy/                  # Configurazione Nginx per il server Debian
+├── deploy.sh                # Build e deploy zero-usura eMMC
+├── public/                  # Asset statici (immagini, loghi)
 ├── src/
 │   ├── app/                 # Pagine e rotte (Next.js App Router)
 │   │   ├── about-me/        # Pagina "Chi Sono"
@@ -80,18 +84,30 @@ npm run dev
 Apri [http://localhost:3000](http://localhost:3000) sul tuo browser per visualizzare il sito in tempo reale.
 
 ### 5. Compilazione di Produzione
-Per creare una build ottimizzata per la produzione:
+La build genera un sito statico completo nella directory `out/`:
 ```bash
 npm run build
-npm run start
 ```
+
+Il contenuto di `out/` può essere servito da qualsiasi web server. In produzione viene servito da Nginx.
 
 ---
 
-## 🌐 Deploy su Netlify
+## 🌐 Deploy On-Premise
 
-Il progetto è ottimizzato per essere distribuito sulla piattaforma **Netlify**. 
-Grazie all'integrazione di `form.html` all'interno della cartella `public/`, Netlify riconoscerà automaticamente i campi del form di contatto contrassegnati da `data-netlify="true"`, permettendoti di ricevere le email degli utenti direttamente nella tua dashboard senza bisogno di configurare alcun server di backend.
+Il sito è ospitato su un server Debian 12 con Nginx e un microservizio backend Go containerizzato.
+
+1. Copia `backend/.env.example` in `backend/.env` sulla workstation di build e inserisci le credenziali SMTP.
+2. Assicurati che il server abbia un file `/opt/portfolio-backend/.env` con le stesse variabili.
+3. Dalla workstation Fedora esegui:
+
+```bash
+./deploy.sh
+```
+
+Lo script compila il frontend, sincronizza `out/` con `rsync --checksum` (scrivendo sulla eMMC solo i file realmente cambiati), compila l'immagine backend, la trasferisce compressa in `/tmp` (RAM) sul server e riavvia il container con `docker compose`.
+
+La configurazione Nginx di riferimento è disponibile in `deploy/nginx-portfolio.conf`.
 
 ---
 
