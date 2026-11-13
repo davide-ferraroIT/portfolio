@@ -90,24 +90,6 @@ Il contenuto di `out/` può essere servito da qualsiasi web server. In produzion
 
 ---
 
-## 🌐 Deploy On-Premise
-
-Il sito è ospitato su un server Debian 12 con Nginx e un microservizio backend Go containerizzato.
-
-1. Copia `backend/.env.example` in `backend/.env` sulla workstation di build e inserisci le credenziali SMTP.
-2. Assicurati che il server abbia un file `<REMOTE_BACKEND_DIR>/.env` con le stesse variabili.
-3. Dalla workstation Fedora, nella root del repository, specifica i parametri del server e avvia il deploy:
-
-```bash
-SERVER_USER=<utente-ssh> SERVER_HOST=<host-o-ip> ./deploy.sh
-```
-
-Lo script compila il frontend in `frontend/`, sincronizza `frontend/out/` con `rsync --checksum` (scrivendo sulla eMMC solo i file realmente cambiati), compila l'immagine backend, la trasferisce compressa in `/tmp` (RAM) sul server e riavvia il container con `docker compose`.
-
-La configurazione Nginx di riferimento è disponibile in `deploy/nginx-portfolio.conf`; la documentazione dell'infrastruttura è in `docs/`.
-
----
-
 ## 👤 Autore
 
 **Davide Ferraro**
